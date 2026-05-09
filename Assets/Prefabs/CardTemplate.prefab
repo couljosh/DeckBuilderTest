@@ -399,6 +399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5217341302909161681}
   - component: {fileID: -2794385860559826081}
+  - component: {fileID: 8856762097822248897}
   m_Layer: 0
   m_Name: CardTemplate
   m_TagString: Untagged
@@ -441,6 +442,27 @@ MonoBehaviour:
   description: {fileID: 3507082636653969615}
   cost: {fileID: 6192455313840598559}
   stats: {fileID: 3174974805576399008}
+--- !u!65 &8856762097822248897
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5940986801330247078}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 0.1, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6025781429200006486
 GameObject:
   m_ObjectHideFlags: 0

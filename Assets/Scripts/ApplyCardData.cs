@@ -15,7 +15,18 @@ public class ApplyCardData : MonoBehaviour
     public TextMeshProUGUI stats;
 
     public bool isTopCard;
+    public bool isSelectedCard;
 
+    [Header("Card Focus Animations")]
+    public Transform focusedPosition;
+    public Sequence sequence;
+    //public Transform focusedRotation;
+
+
+    private void Start()
+    {
+        focusedPosition = GameObject.FindGameObjectWithTag("focusedPosition").transform;
+    }
     void ApplyChosenData()
     {
         cardName.text = cardDataSet.cardName.ToString();
@@ -38,15 +49,23 @@ public class ApplyCardData : MonoBehaviour
         if (!isTopCard)
             return;
 
-        deckRef.TriggerTopCard(gameObject);
+        // deckRef.TriggerTopCard(gameObject);
+
+        
+        if (!isSelectedCard)
+        {       
+            BringCardToFocus();
+
+        }
     }
 
     private void Update()
     {
-        if(deckRef.currentTopCard == gameObject) 
+        if (deckRef.currentTopCard == gameObject)
         {
             isTopCard = true;
-        } else
+        }
+        else
         {
             isTopCard = false;
         }
@@ -54,7 +73,27 @@ public class ApplyCardData : MonoBehaviour
 
     public void BringCardToFocus()
     {
-        Sequence sequence = DOTween.Sequence();
+        sequence?.Kill();
 
+         sequence = DOTween.Sequence();
+
+        sequence.Append(transform.DORotate(new Vector3(-45f, 0, 0), 1.5f).SetEase(Ease.OutCubic));
+        sequence.Join(transform.DOMove(focusedPosition.position, 2f).SetEase(Ease.OutCubic).OnComplete(() =>
+            {
+                isSelectedCard = true;
+            }));
+    }
+
+    public void BringToHand(Transform handPosition)
+    {
+        sequence?.Kill();
+        sequence = DOTween.Sequence();
+
+        sequence.Append(transform.DORotate(new Vector3(0, 0, 0), 1.5f).SetEase(Ease.OutCubic));
+        sequence.Join(transform.DOMove(handPosition.position, 2f).SetEase(Ease.OutCubic).OnComplete(() =>
+        {
+            isSelectedCard = true;
+        }));
     }
 }
+

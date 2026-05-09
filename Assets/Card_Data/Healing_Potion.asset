@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d994c2ba62f3c41a30c944dea89da7, type: 3}
+  m_Name: Healing_Potion
+  m_EditorClassIdentifier: Assembly-CSharp::CardDataSet
+  cardID: 7
+  cardName: Healing Potion
+  illustration: {fileID: 21300000, guid: ccaa147c125fc72479ac3251ee2cfd73, type: 3}
+  description: Restore 6 Health to your Hero.
+  cost: 2
+  stats: Spell

@@ -4,14 +4,13 @@ using Unity.VisualScripting;
 
 public class Deck_Spawner : MonoBehaviour
 {
+    [Header("Cards In play / available")]
     public List<GameObject> availableCards = new List<GameObject>();
     public CardDataSet[] cardData;
 
+    [Header("Gameplay References")]
     public GameObject cardTemplate;
     public Transform deckPosition;
-
-    public float cardVerticalOffset;
-
     public GameObject currentTopCard
     {
         get
@@ -23,14 +22,18 @@ public class Deck_Spawner : MonoBehaviour
         }
     }
 
+    [Header("Deck Customization")]
+    public float cardVerticalOffset;
+
+
     void Awake()
     {
         InstantiateCards();
     }
 
+
     void InstantiateCards()
     {
-
         List<CardDataSet> shuffledDeck = new(cardData);
         ShuffleCards(shuffledDeck);
 
@@ -49,6 +52,7 @@ public class Deck_Spawner : MonoBehaviour
         }
     }
 
+
     void ShuffleCards(List<CardDataSet> cardList)
     {
         for (int i = 0; i < cardList.Count; i++)
@@ -58,10 +62,15 @@ public class Deck_Spawner : MonoBehaviour
         }
     }
 
+
     public void TriggerTopCard(GameObject topCard)
     {
         availableCards.Remove(topCard);
-        Destroy(topCard);
+
+        if (availableCards.Count > 0)
+        {
+            topCard = availableCards[availableCards.Count - 1];
+        }
     }
 
 }

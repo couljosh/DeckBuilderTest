@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class HandManagement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("Hand Tracking References")]
+    public static HandManagement instance;
+    public Transform[] handSlots;
+    public int handCount;
+
+
+    public Transform GetNewSlot()
     {
+        if(handCount >= handSlots.Length)
+            return null;
+
+        return handSlots[handCount++];
         
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void Awake()
     {
-        
+        instance = this;   
     }
+
 }

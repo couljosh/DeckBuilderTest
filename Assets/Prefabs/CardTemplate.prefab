@@ -442,6 +442,10 @@ MonoBehaviour:
   description: {fileID: 3507082636653969615}
   cost: {fileID: 6192455313840598559}
   stats: {fileID: 3174974805576399008}
+  isTopCard: 0
+  isSelectedCard: 0
+  focusedPosition: {fileID: 0}
+  easeDuration: 1.5
 --- !u!65 &8856762097822248897
 BoxCollider:
   m_ObjectHideFlags: 0

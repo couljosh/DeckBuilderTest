@@ -56,7 +56,7 @@ public class ApplyCardData : MonoBehaviour
         if (!isTopCard)
             return;
 
-        if (!isSelectedCard && HandManagement.instance.handCount < 8)
+        if (!isSelectedCard && HandManagement.instance.handCount <= 8)
         {
             BringCardToFocus();
 
@@ -99,7 +99,6 @@ public class ApplyCardData : MonoBehaviour
     // Animation From Focus -> Hand // ------------------------------------------------------------------------
     public void BringToHand()
     {
-
         Transform targetSlot = HandManagement.instance.GetNewSlot();
 
         if (targetSlot == null)
